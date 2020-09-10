@@ -51,6 +51,9 @@ def get_features(state, action):
     # features["action_type"] = 1.0
 
     # next_state is after predict
+
+    "*** YOUR CODE HERE ***"
+
     next_state = virtual_sense(state_copy, action)
     features["to_explored"] = (next_state.num_explored - state_copy.num_explored) / 20.0
     # features["num_unexplored_inverse"] = 1.0 / (301.0 - next_state.num_explored)  # 301 is set to avoid devide by zero

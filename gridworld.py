@@ -161,7 +161,6 @@ class Gridworld(mdp.MarkovDecisionProcess):
         departed (as in the R+N book examples, which more or
         less use this convention).
         """
-        # TODO:
         if state.is_terminal:
             return 0.0
 
@@ -172,6 +171,9 @@ class Gridworld(mdp.MarkovDecisionProcess):
         reward += (next_state.num_explored - state.num_explored)
         if action == Actions.U_TURN:
             reward -= 10
+
+        "*** YOUR CODE HERE ***"
+
         # reward -= pow(1.005, len(state.history))
         # encourage right hugging
         # if reward != 1 and action == Actions.U_TURN:
@@ -322,7 +324,7 @@ if __name__ == '__main__':
     # GET THE GRIDWORLD
     ###########################
 
-    grid = get_grid_from_file("/Users/chentaoyu/Desktop/year4sem1/CZ3004/project/mdp_algo/grids/not_reachable.txt")
+    grid = get_grid_from_file("/Users/chentaoyu/Desktop/year4sem1/CZ3004/project/mdp_algo/grids/exp1.txt")
     mdp = Gridworld(grid)
     env = GridworldEnvironment(mdp)
 

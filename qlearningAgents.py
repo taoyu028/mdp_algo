@@ -58,7 +58,6 @@ class QLearningAgent(ReinforcementAgent):
           where * is the dotProduct operator
         """
 
-        "*** YOUR CODE HERE ***"
         # print_grid(state.explored_grid)
         sum = 0
         features = get_features(state, action)
@@ -80,7 +79,7 @@ class QLearningAgent(ReinforcementAgent):
           there are no legal actions, which is the case at the
           terminal state, you should return a value of 0.0.
         """
-        "*** YOUR CODE HERE ***"
+
         max_Q = -10000
         actions = self.getLegalActions(state)
         if actions:
@@ -96,9 +95,9 @@ class QLearningAgent(ReinforcementAgent):
         """
           Compute the best action to take in a state.  Note that if there
           are no legal actions, which is the case at the terminal state,
-          you should return None.
+          return None.
         """
-        "*** YOUR CODE HERE ***"
+
         actions = self.getLegalActions(state)
         actions_q = []
         if actions:
@@ -112,21 +111,11 @@ class QLearningAgent(ReinforcementAgent):
             return None
 
     def getAction(self, state):
-        """
-          Compute the action to take in the current state.  With
-          probability self.epsilon, we should take a random action and
-          take the best policy action otherwise.  Note that if there are
-          no legal actions, which is the case at the terminal state, you
-          should choose None as the action.
-
-          HINT: You might want to use util.flipCoin(prob)
-          HINT: To pick randomly from a list, use random.choice(list)
-        """
         # Pick Action
         legalActions = self.getLegalActions(state)
         legalActions_q = []
         action = None
-        "*** YOUR CODE HERE ***"
+
         if legalActions:
             for legalAction in legalActions:
                 legalActions_q.append(self.getQValue(state,legalAction))
@@ -158,7 +147,7 @@ class QLearningAgent(ReinforcementAgent):
           NOTE: You should never call this function,
           it will be called on your behalf
         """
-        "*** YOUR CODE HERE ***"
+
         nextState_q = []
         for actions in self.getLegalActions(nextState):
             nextState_q.append(self.getQValue(nextState, actions))
